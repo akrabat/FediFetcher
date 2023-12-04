@@ -467,7 +467,8 @@ def get_all_known_context_urls(server, reply_toots, parsed_urls, seen_hosts):
             context = get_toot_context(parsed_url[0], parsed_url[1], url, seen_hosts)
             if context is not None:
                 for item in context:
-                    known_context_urls.add(item)
+                    if item is not None:
+                        known_context_urls.add(item)
             else:
                 log(f"Error getting context for toot {url}")
     
